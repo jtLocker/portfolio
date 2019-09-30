@@ -27,46 +27,50 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#">Resume</a>
       <a class="nav-item nav-link" href="#">Contact</a>
-      <a class="nav-item nav-link" href="#">Blog</a>
+      <a class="nav-item nav-link active" href="#">Blog</a>
     </div>
   </div>
 </nav>
     </header>
-
     <main role="main">
+    <div class = 'container'>
+    <h1 class = "text-center pt-2">Jack's Blog</h1>
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hello, I am Jack</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">View my Resume</a>
-            <a href="#" class="btn btn-secondary my-2">Email me</a>
-          </p>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-          {% for job in jobs.all %}
-                     
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ job.image.url }}">{{blog.}}
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
-              
-            </div>
-             {% endfor %}
-          </div>
-          
+    <br>
+    <br>
+    <h2>Latest Post</h2>
+    
+    {% for blog in blogs.all %}
+    <hr>   
+    {% comment %} <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="{{ blog.image.url }}">
+        <div class="card-body">
+          <p class="card-text">{{ blog.body }}</p>
         </div>
       </div>
-           
+    </div> {% endcomment %}
+
+          <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <h3 class="mb-0">Featured post</h3>
+          <div class="mb-1 text-muted">{{ blog.month }}  {{ blog.pub_date }}</div>
+           <p class="card-text mb-auto">{{blog.body}}</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <img class="card-img-left" src="{{ blog.image.url }}">
+        </div>
+      </div>
+    </div>
+
+
+    {% endfor %}
+    
+    </div>
     </main>
 
     <footer class="text-muted">
