@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Blog
-from django.db.models.functions import ExtractMonth, ExtractDay
-import datetime
+
 # Create your views here.
 
-def blogcore(request):
-    blogs = Blog.objects.annotate(
-    month=ExtractMonth('pub_date')
-    # day=ExtractDay('pub_date')
-)
+# i want be able to retrieve and print "Sep" from date
 
+def blogcore(request):
+    blogs = Blog.objects
     return render(request, "blog/blogcore.html", {"blogs" : blogs})
+
+def detail(request, blog_id):
+    blogdetail = get_object_or_404(Blog, pk=blog_id)
+    return render(request, "blog/detail.html", {"blog":blogdetail})

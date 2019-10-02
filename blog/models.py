@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.functions import datetime, ExtractMonth
 # Create your models here.
 
 
@@ -9,4 +8,8 @@ class Blog(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField(max_length=500)
     image = models.ImageField(upload_to='images/')
+    def month(self):
+        return self.pub_date.strftime('%b')
+    def day(self):
+        return self.pub_date.strftime('%d')
 
