@@ -26,7 +26,7 @@ SECRET_KEY = '_^kk113q%(-z@vis@tucbp_ml&8a^ie2qo*5dhxxg=i_52g-r7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'www.jackt.info']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'www.jackt.info']
 
 
 # Application definition
